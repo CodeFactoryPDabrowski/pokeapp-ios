@@ -1,0 +1,31 @@
+{
+  "Mac" : [
+    {
+      "name" : "PMKFoundation",
+      "hash" : "7853eb2124351a3e0a9ff540d08def07361c2bbfa697ab21b3bb9082387835c9",
+      "swiftToolchainVersion" : "5.1.3 (swiftlang-1100.0.282.1 clang-1100.0.33.15)"
+    }
+  ],
+  "watchOS" : [
+    {
+      "name" : "PMKFoundation",
+      "hash" : "e26fe5848ac4364d137429ccf2d99d2e35d54f949d841a23e1839f0358d843c9",
+      "swiftToolchainVersion" : "5.1.3 (swiftlang-1100.0.282.1 clang-1100.0.33.15)"
+    }
+  ],
+  "tvOS" : [
+    {
+      "name" : "PMKFoundation",
+      "hash" : "81c9d17cf07b378dafc21be46c37bd1e94877d80c740373abb89c5f6407dc1df",
+      "swiftToolchainVersion" : "5.1.3 (swiftlang-1100.0.282.1 clang-1100.0.33.15)"
+    }
+  ],
+  "commitish" : "3.3.4",
+  "iOS" : [
+    {
+      "name" : "PMKFoundation",
+      "hash" : "487fdb469ff08e34beb0a819c6c4c91e24ea3b323f1359ca78828ec484efe8c3",
+      "swiftToolchainVersion" : "5.1.3 (swiftlang-1100.0.282.1 clang-1100.0.33.15)"
+    }
+  ]
+}
