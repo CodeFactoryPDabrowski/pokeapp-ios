@@ -42,6 +42,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		16C8968C23FE9E7400809647 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DB485B7F23F5FF4500018723 /* ContentView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		DB485B6F23F5FF4500018723 = {
 			isa = PBXGroup;
 			children = (
@@ -62,9 +70,9 @@
 		DB485B7A23F5FF4500018723 /* PokeAppIos */ = {
 			isa = PBXGroup;
 			children = (
+				16C8968C23FE9E7400809647 /* View */,
 				DB485B7B23F5FF4500018723 /* AppDelegate.swift */,
 				DB485B7D23F5FF4500018723 /* SceneDelegate.swift */,
-				DB485B7F23F5FF4500018723 /* ContentView.swift */,
 				DB485B8123F5FF4900018723 /* Assets.xcassets */,
 				DB485B8623F5FF4900018723 /* LaunchScreen.storyboard */,
 				DB485B8923F5FF4900018723 /* Info.plist */,
