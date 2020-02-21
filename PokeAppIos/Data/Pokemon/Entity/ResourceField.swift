@@ -7,3 +7,8 @@
 //
 
 import Foundation
+
+protocol ResourceField{
+    var name: String {get}
+    var url: String {get}
+}

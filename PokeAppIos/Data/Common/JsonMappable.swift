@@ -7,3 +7,8 @@
 //
 
 import Foundation
+import SwiftyJSON
+
+protocol JsonMappable {
+    init?(json: JSON)
+}

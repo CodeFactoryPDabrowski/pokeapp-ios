@@ -7,3 +7,14 @@
 //
 
 import Foundation
+import SwiftyJSON
+
+class Form: JsonMappable, ResourceField{
+    let name: String
+    let url: String
+    
+    required init?(json: JSON) {
+        self.name = json["name"].stringValue
+        self.url = json["url"].stringValue
+    }
+}

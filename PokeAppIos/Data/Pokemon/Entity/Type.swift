@@ -7,3 +7,16 @@
 //
 
 import Foundation
+import SwiftyJSON
+
+class Type: JsonMappable, ResourceField{
+    let slot: Int
+    let name: String
+    let url: String
+    
+    required init?(json: JSON) {
+        self.slot = json["slot"].int!
+        self.name = json["type"]["name"].stringValue
+        self.url = json["type"]["url"].stringValue
+    }
+}
