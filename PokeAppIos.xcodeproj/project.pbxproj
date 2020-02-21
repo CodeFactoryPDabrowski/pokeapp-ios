@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		16C8969123FEAD0F00809647 /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C8969023FEAD0F00809647 /* Pokemon.swift */; };
+		16C8969323FEB00C00809647 /* Ability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C8969223FEB00C00809647 /* Ability.swift */; };
+		16C8969523FEB09B00809647 /* Form.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C8969423FEB09B00809647 /* Form.swift */; };
+		16C8969723FEB5F600809647 /* Sprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C8969623FEB5F600809647 /* Sprite.swift */; };
+		16C8969923FEB81F00809647 /* Species.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C8969823FEB81F00809647 /* Species.swift */; };
+		16C8969B23FEB8F700809647 /* Stats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C8969A23FEB8F700809647 /* Stats.swift */; };
+		16C8969D23FEB92E00809647 /* Type.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C8969C23FEB92E00809647 /* Type.swift */; };
+		16C896A223FEBE1700809647 /* JsonMappable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C896A123FEBE1700809647 /* JsonMappable.swift */; };
+		16C896A423FED0F000809647 /* ResourceField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C896A323FED0F000809647 /* ResourceField.swift */; };
 		DB485B7C23F5FF4500018723 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB485B7B23F5FF4500018723 /* AppDelegate.swift */; };
 		DB485B7E23F5FF4500018723 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB485B7D23F5FF4500018723 /* SceneDelegate.swift */; };
 		DB485B8023F5FF4500018723 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB485B7F23F5FF4500018723 /* ContentView.swift */; };
@@ -16,6 +25,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		16C8969023FEAD0F00809647 /* Pokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
+		16C8969223FEB00C00809647 /* Ability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ability.swift; sourceTree = "<group>"; };
+		16C8969423FEB09B00809647 /* Form.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Form.swift; sourceTree = "<group>"; };
+		16C8969623FEB5F600809647 /* Sprite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sprite.swift; sourceTree = "<group>"; };
+		16C8969823FEB81F00809647 /* Species.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Species.swift; sourceTree = "<group>"; };
+		16C8969A23FEB8F700809647 /* Stats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stats.swift; sourceTree = "<group>"; };
+		16C8969C23FEB92E00809647 /* Type.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Type.swift; sourceTree = "<group>"; };
+		16C896A123FEBE1700809647 /* JsonMappable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonMappable.swift; sourceTree = "<group>"; };
+		16C896A323FED0F000809647 /* ResourceField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceField.swift; sourceTree = "<group>"; };
 		DB485B7823F5FF4500018723 /* PokeAppIos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokeAppIos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB485B7B23F5FF4500018723 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB485B7D23F5FF4500018723 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -50,6 +68,46 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		16C8968D23FEACD400809647 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				16C8969E23FEB94E00809647 /* Common */,
+				16C8968E23FEACEB00809647 /* Pokemon */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		16C8968E23FEACEB00809647 /* Pokemon */ = {
+			isa = PBXGroup;
+			children = (
+				16C8968F23FEACF400809647 /* Entity */,
+			);
+			path = Pokemon;
+			sourceTree = "<group>";
+		};
+		16C8968F23FEACF400809647 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				16C8969023FEAD0F00809647 /* Pokemon.swift */,
+				16C8969223FEB00C00809647 /* Ability.swift */,
+				16C8969423FEB09B00809647 /* Form.swift */,
+				16C8969623FEB5F600809647 /* Sprite.swift */,
+				16C8969823FEB81F00809647 /* Species.swift */,
+				16C8969A23FEB8F700809647 /* Stats.swift */,
+				16C8969C23FEB92E00809647 /* Type.swift */,
+				16C896A323FED0F000809647 /* ResourceField.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		16C8969E23FEB94E00809647 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				16C896A123FEBE1700809647 /* JsonMappable.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		DB485B6F23F5FF4500018723 = {
 			isa = PBXGroup;
 			children = (
@@ -70,6 +128,7 @@
 		DB485B7A23F5FF4500018723 /* PokeAppIos */ = {
 			isa = PBXGroup;
 			children = (
+				16C8968D23FEACD400809647 /* Data */,
 				16C8968C23FE9E7400809647 /* View */,
 				DB485B7B23F5FF4500018723 /* AppDelegate.swift */,
 				DB485B7D23F5FF4500018723 /* SceneDelegate.swift */,
@@ -205,8 +264,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				DB485B7C23F5FF4500018723 /* AppDelegate.swift in Sources */,
+				16C8969B23FEB8F700809647 /* Stats.swift in Sources */,
+				16C896A423FED0F000809647 /* ResourceField.swift in Sources */,
+				16C8969323FEB00C00809647 /* Ability.swift in Sources */,
+				16C8969123FEAD0F00809647 /* Pokemon.swift in Sources */,
 				DB485B7E23F5FF4500018723 /* SceneDelegate.swift in Sources */,
+				16C8969D23FEB92E00809647 /* Type.swift in Sources */,
+				16C8969923FEB81F00809647 /* Species.swift in Sources */,
+				16C8969723FEB5F600809647 /* Sprite.swift in Sources */,
+				16C896A223FEBE1700809647 /* JsonMappable.swift in Sources */,
 				DB485B8023F5FF4500018723 /* ContentView.swift in Sources */,
+				16C8969523FEB09B00809647 /* Form.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
