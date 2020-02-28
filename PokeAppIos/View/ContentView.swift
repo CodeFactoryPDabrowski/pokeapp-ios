@@ -9,13 +9,19 @@
 import SwiftUI
 
 struct ContentView: View {
+    let pokemonListViewModel: PokemonListViewModel
+    
+    init(pokemonListViewModel: PokemonListViewModel) {
+        self.pokemonListViewModel = pokemonListViewModel
+    }
+    
     var body: some View {
         Text("Hello, World!")
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
-}
+//struct ContentView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ContentView()
+//    }
+//}
