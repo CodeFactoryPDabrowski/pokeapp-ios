@@ -19,7 +19,6 @@
 		16C896A8240000F700809647 /* UseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C896A7240000F600809647 /* UseCase.swift */; };
 		16C896AB240402EE00809647 /* GetAllPokemonsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C896AA240402ED00809647 /* GetAllPokemonsUseCase.swift */; };
 		16C896B024094D3800809647 /* DependencyProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C896AF24094D3800809647 /* DependencyProvider.swift */; };
-		16C896B32409541400809647 /* ViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C896B22409541400809647 /* ViewExt.swift */; };
 		16C896B724095B2500809647 /* PokemonListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C896B624095B2500809647 /* PokemonListViewModel.swift */; };
 		16C896B924095DB000809647 /* ViewModelAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C896B824095DB000809647 /* ViewModelAssembly.swift */; };
 		16C896BB24095F2F00809647 /* ViewAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C896BA24095F2F00809647 /* ViewAssembly.swift */; };
@@ -45,7 +44,6 @@
 		16C896A7240000F600809647 /* UseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCase.swift; sourceTree = "<group>"; };
 		16C896AA240402ED00809647 /* GetAllPokemonsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAllPokemonsUseCase.swift; sourceTree = "<group>"; };
 		16C896AF24094D3800809647 /* DependencyProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyProvider.swift; sourceTree = "<group>"; };
-		16C896B22409541400809647 /* ViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExt.swift; sourceTree = "<group>"; };
 		16C896B624095B2500809647 /* PokemonListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonListViewModel.swift; sourceTree = "<group>"; };
 		16C896B824095DB000809647 /* ViewModelAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelAssembly.swift; sourceTree = "<group>"; };
 		16C896BA24095F2F00809647 /* ViewAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewAssembly.swift; sourceTree = "<group>"; };
@@ -80,7 +78,6 @@
 			isa = PBXGroup;
 			children = (
 				DB485B7F23F5FF4500018723 /* ContentView.swift */,
-				16C896B22409541400809647 /* ViewExt.swift */,
 				16C896BA24095F2F00809647 /* ViewAssembly.swift */,
 			);
 			path = View;
@@ -338,7 +335,6 @@
 				16C896BB24095F2F00809647 /* ViewAssembly.swift in Sources */,
 				DB485B7C23F5FF4500018723 /* AppDelegate.swift in Sources */,
 				16C8969B23FEB8F700809647 /* Stats.swift in Sources */,
-				16C896B32409541400809647 /* ViewExt.swift in Sources */,
 				16C896AB240402EE00809647 /* GetAllPokemonsUseCase.swift in Sources */,
 				16C896BD2409625200809647 /* UseCaseAssembly.swift in Sources */,
 				16C896A423FED0F000809647 /* ResourceField.swift in Sources */,
