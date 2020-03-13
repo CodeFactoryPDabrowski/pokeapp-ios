@@ -14,5 +14,4 @@ github "PromiseKit/Foundation" ~> 3.3.4
 github "Swinject/Swinject"
 
 #Networking
-github "SwiftyJSON/SwiftyJSON" ~> 4.0
 github "Alamofire/Alamofire" "5.0.0-rc.3"

@@ -14,7 +14,6 @@
 		16C8969923FEB81F00809647 /* Species.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C8969823FEB81F00809647 /* Species.swift */; };
 		16C8969B23FEB8F700809647 /* Stats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C8969A23FEB8F700809647 /* Stats.swift */; };
 		16C8969D23FEB92E00809647 /* Type.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C8969C23FEB92E00809647 /* Type.swift */; };
-		16C896A223FEBE1700809647 /* JsonMappable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C896A123FEBE1700809647 /* JsonMappable.swift */; };
 		16C896A423FED0F000809647 /* ResourceField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C896A323FED0F000809647 /* ResourceField.swift */; };
 		16C896A8240000F700809647 /* UseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C896A7240000F600809647 /* UseCase.swift */; };
 		16C896AB240402EE00809647 /* GetAllPokemonsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C896AA240402ED00809647 /* GetAllPokemonsUseCase.swift */; };
@@ -44,7 +43,6 @@
 		16C8969823FEB81F00809647 /* Species.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Species.swift; sourceTree = "<group>"; };
 		16C8969A23FEB8F700809647 /* Stats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stats.swift; sourceTree = "<group>"; };
 		16C8969C23FEB92E00809647 /* Type.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Type.swift; sourceTree = "<group>"; };
-		16C896A123FEBE1700809647 /* JsonMappable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonMappable.swift; sourceTree = "<group>"; };
 		16C896A323FED0F000809647 /* ResourceField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceField.swift; sourceTree = "<group>"; };
 		16C896A7240000F600809647 /* UseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCase.swift; sourceTree = "<group>"; };
 		16C896AA240402ED00809647 /* GetAllPokemonsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAllPokemonsUseCase.swift; sourceTree = "<group>"; };
@@ -64,7 +62,6 @@
 		DB485B9023F6E01200018723 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		DB485B9423F6E01500018723 /* PMKFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PMKFoundation.framework; path = Carthage/Build/iOS/PMKFoundation.framework; sourceTree = "<group>"; };
 		DB485B9723F6E01700018723 /* PromiseKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PromiseKit.framework; path = Carthage/Build/iOS/PromiseKit.framework; sourceTree = "<group>"; };
-		DB485B9A23F6E01900018723 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		DB485B9D23F6E01C00018723 /* Swinject.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Swinject.framework; path = Carthage/Build/iOS/Swinject.framework; sourceTree = "<group>"; };
 		DBA56D532412814E00E39576 /* PokemonRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonRepository.swift; sourceTree = "<group>"; };
 		DBA56D55241281B300E39576 /* PokemonNetworkSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonNetworkSource.swift; sourceTree = "<group>"; };
@@ -131,7 +128,6 @@
 		16C8969E23FEB94E00809647 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				16C896A123FEBE1700809647 /* JsonMappable.swift */,
 				DBA56D592412A6A300E39576 /* DataAssembly.swift */,
 			);
 			path = Common;
@@ -236,7 +232,6 @@
 			isa = PBXGroup;
 			children = (
 				DB485B9D23F6E01C00018723 /* Swinject.framework */,
-				DB485B9A23F6E01900018723 /* SwiftyJSON.framework */,
 				DB485B9723F6E01700018723 /* PromiseKit.framework */,
 				DB485B9423F6E01500018723 /* PMKFoundation.framework */,
 				DB485B9023F6E01200018723 /* Alamofire.framework */,
@@ -329,7 +324,6 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/Swinject.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/PromiseKit.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/PMKFoundation.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
@@ -339,7 +333,6 @@
 			);
 			outputPaths = (
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Swinject.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/SwiftyJSON.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/PromiseKit.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/PMKFoundation.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Alamofire.framework",
@@ -374,7 +367,6 @@
 				DBA56D5A2412A6A300E39576 /* DataAssembly.swift in Sources */,
 				DBA56D56241281B300E39576 /* PokemonNetworkSource.swift in Sources */,
 				16C896B924095DB000809647 /* ViewModelAssembly.swift in Sources */,
-				16C896A223FEBE1700809647 /* JsonMappable.swift in Sources */,
 				16C896B024094D3800809647 /* AppComponent.swift in Sources */,
 				DB485B8023F5FF4500018723 /* ContentView.swift in Sources */,
 				16C8969523FEB09B00809647 /* Form.swift in Sources */,
