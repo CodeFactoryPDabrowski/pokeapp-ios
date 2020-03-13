@@ -7,14 +7,18 @@
 //
 
 import Foundation
-import SwiftyJSON
 
-class Form: JsonMappable, ResourceField{
+class Form: Decodable, ResourceField{
     let name: String
     let url: String
     
-    required init?(json: JSON) {
-        self.name = json["name"].stringValue
-        self.url = json["url"].stringValue
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.name = try container.decode(String.self, forKey: .name)
+        self.url = try container.decode(String.self, forKey: .url)
+    }
+          
+    enum CodingKeys: String, CodingKey {
+        case name, url
     }
 }

@@ -9,11 +9,12 @@ class Pokemon: Decodable{
     let isDefault:Bool
     let order: Int
     let weight:Int
-    //    let abilities: Array<Ability>
-    //    let forms: Array<Form>
-    //    let sprites: Array<Sprite>
-    //    let stats: Array<Stats>
-    //    let types: Array<Type>
+    let abilities: Array<Ability>
+    let forms: Array<Form>
+    let sprites: Sprite
+    let species: Species
+    let stats: Array<Stats>
+    let types: Array<Type>
     
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
@@ -24,25 +25,17 @@ class Pokemon: Decodable{
         self.isDefault = try container.decode(Bool.self, forKey: .isDefault)
         self.order = try container.decode(Int.self, forKey: .order)
         self.weight = try container.decode(Int.self, forKey: .weight)
-        //TODO: Handle child objects
+        self.abilities = try container.decode(Array<Ability>.self, forKey: .abilities)
+        self.forms = try container.decode(Array<Form>.self, forKey: .forms)
+        self.sprites = try container.decode(Sprite.self, forKey: .sprites)
+        self.species = try container.decode(Species.self, forKey: .species)
+        self.stats = try container.decode(Array<Stats>.self, forKey: .stats)
+        self.types = try container.decode(Array<Type>.self, forKey: .types)
     }
     
     enum CodingKeys: String, CodingKey {
-        case id, name, height, order, weight
+        case id, name, height, order, weight, abilities, forms, sprites, species, stats, types
         case baseExperience = "base_experience"
         case isDefault = "is_default"
     }
-    
-    //    required init?(json: JSON) {
-    //        let abilities: Array<JSON> = json["abilities"].arrayValue
-    //        let forms: Array<JSON> = json["forms"].arrayValue
-    //        let sprites: Array<JSON> = json["sprites"].arrayValue
-    //        let stats: Array<JSON> = json["stats"].arrayValue
-    //        let types: Array<JSON> = json["types"].arrayValue
-    //        self.abilities = abilities.map{ Ability(json: $0)! }
-    //        self.forms = forms.map{Form(json: $0)!}
-    //        self.sprites = sprites.map{Sprite(json: $0)!}
-    //        self.stats = stats.map{Stats(json: $0)!}
-    //        self.types = types.map{Type(json: $0)!}
-    //    }
 }

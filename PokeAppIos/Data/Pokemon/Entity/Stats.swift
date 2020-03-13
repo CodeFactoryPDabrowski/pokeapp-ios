@@ -7,19 +7,39 @@
 //
 
 import Foundation
-import SwiftyJSON
 
-class Stats: JsonMappable, ResourceField{
+class Stats: Decodable, ResourceField{
     let baseStat:Int
     let effort:Int
     let name: String
     let url: String
     
-    required init?(json: JSON) {
-        self.baseStat = json["base_stat"].intValue
-        self.effort = json["effort"].intValue
-        self.name = json["stat"]["name"].stringValue
-        self.url = json["stat"]["url"].stringValue
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.baseStat = try container.decode(Int.self, forKey: .baseStat)
+        self.effort = try container.decode(Int.self, forKey: .effort)
+        let stat =  try container.decode(Stat.self, forKey: .stat)
+        self.name = stat.name
+        self.url = stat.url
     }
     
+    enum CodingKeys: String, CodingKey {
+        case effort, stat
+        case baseStat = "base_stat"
+    }
+}
+
+class Stat: Decodable, ResourceField {
+    let name: String
+    let url: String
+    
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.name = try container.decode(String.self, forKey: .name)
+        self.url = try container.decode(String.self, forKey: .url)
+    }
+          
+    enum CodingKeys: String, CodingKey {
+        case name, url
+    }
 }

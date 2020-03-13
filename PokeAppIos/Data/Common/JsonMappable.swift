@@ -9,6 +9,7 @@
 import Foundation
 import SwiftyJSON
 
+//TODO remove it!!!!
 protocol JsonMappable {
     init?(json: JSON)
 }
