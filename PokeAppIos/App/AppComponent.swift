@@ -9,13 +9,13 @@
 import Foundation
 import Swinject
 
-class DependencyProvider{
+class AppComponent{
     let container = Container()
     private let assembler: Assembler
     
     init() {
         assembler = Assembler(
-            [
+            [   DataAssembly(),
                 UseCaseAssembly(),
                 ViewModelAssembly(),
                 ViewAssembly()

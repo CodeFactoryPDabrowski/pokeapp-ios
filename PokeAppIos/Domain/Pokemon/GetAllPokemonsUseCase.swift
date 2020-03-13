@@ -15,16 +15,15 @@ struct GetAllPokemonsUseCase: UseCase {
     
     typealias Result = Array<Pokemon>
     
-    func execute(param: GetAllPokemonsUseCase.Args) -> Promise<Array<Pokemon>> {
-        return firstly{
-            fetchAll()
-        }
+    private let pokemonRepository: PokemonRepository
+    
+    init(pokemonRepository: PokemonRepository) {
+        self.pokemonRepository = pokemonRepository
     }
     
-    //TODO: Implement proper fetching of pokemons
-    func fetchAll() -> Promise<Array<Pokemon>> {
-        return Promise { seal in
-            seal.fulfill([Pokemon]())
+    func execute(param: GetAllPokemonsUseCase.Args) -> Promise<Array<Pokemon>> {
+        return firstly{
+            pokemonRepository.fetchAll()
         }
     }
     

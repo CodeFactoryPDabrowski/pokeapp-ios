@@ -11,7 +11,7 @@ import SwiftUI
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
-    let dependencyProvider = DependencyProvider()
+    let dependencyProvider = AppComponent()
     
     var window: UIWindow?
     

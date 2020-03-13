@@ -12,6 +12,6 @@ import Swinject
 class UseCaseAssembly : Assembly {
     
     func assemble(container: Container) {
-        container.register(GetAllPokemonsUseCase.self) { r in return GetAllPokemonsUseCase() }
+        container.register(GetAllPokemonsUseCase.self) { r in return GetAllPokemonsUseCase(pokemonRepository: r.resolve(PokemonRepository.self)!) }
     }
 }
