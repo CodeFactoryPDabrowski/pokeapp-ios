@@ -33,6 +33,7 @@
 		DBA56D56241281B300E39576 /* PokemonNetworkSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA56D55241281B300E39576 /* PokemonNetworkSource.swift */; };
 		DBA56D5824129AD800E39576 /* Pokemons.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA56D5724129AD800E39576 /* Pokemons.swift */; };
 		DBA56D5A2412A6A300E39576 /* DataAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA56D592412A6A300E39576 /* DataAssembly.swift */; };
+		DBA56D5C241BCC3D00E39576 /* AppUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA56D5B241BCC3D00E39576 /* AppUrl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +70,7 @@
 		DBA56D55241281B300E39576 /* PokemonNetworkSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonNetworkSource.swift; sourceTree = "<group>"; };
 		DBA56D5724129AD800E39576 /* Pokemons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pokemons.swift; sourceTree = "<group>"; };
 		DBA56D592412A6A300E39576 /* DataAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataAssembly.swift; sourceTree = "<group>"; };
+		DBA56D5B241BCC3D00E39576 /* AppUrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUrl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				16C896AF24094D3800809647 /* AppComponent.swift */,
+				DBA56D5B241BCC3D00E39576 /* AppUrl.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -355,6 +358,7 @@
 				16C896BB24095F2F00809647 /* ViewAssembly.swift in Sources */,
 				DB485B7C23F5FF4500018723 /* AppDelegate.swift in Sources */,
 				16C8969B23FEB8F700809647 /* Stats.swift in Sources */,
+				DBA56D5C241BCC3D00E39576 /* AppUrl.swift in Sources */,
 				16C896AB240402EE00809647 /* GetAllPokemonsUseCase.swift in Sources */,
 				16C896BD2409625200809647 /* UseCaseAssembly.swift in Sources */,
 				16C896A423FED0F000809647 /* ResourceField.swift in Sources */,

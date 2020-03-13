@@ -9,15 +9,27 @@
 import Foundation
 
 class Pokemons: Decodable {
-    let pokemons: Array<Pokemon>
+    let results: Array<PokemonUrl>
     
     required init(from decoder: Decoder) throws {
-        var container = try decoder.unkeyedContainer()
-          var pokemons = Array<Pokemon>()
-          while !container.isAtEnd {
-            let pokemon = try container.decode(Pokemon.self)
-            pokemons.append(pokemon)
-          }
-        self.pokemons = pokemons
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.results = try container.decode(Array<PokemonUrl>.self, forKey: .results)
+    }
+    
+    enum CodingKeys: String, CodingKey {
+        case results
+    }
+}
+
+class PokemonUrl: Decodable {
+    let url: String
+    
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.url =  try container.decode(String.self, forKey: .url)
+    }
+    
+    enum CodingKeys: String, CodingKey {
+        case url
     }
 }

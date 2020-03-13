@@ -12,16 +12,35 @@ import PromiseKit
 
 struct PokemonNetworkSource {
     
-    func fetchAll(pageSize:Int) -> Promise<Array<Pokemon>> {
-        return Promise{seal in
-            AF.request("https://pokeapi.co/api/v2/pokemon/")//TODO: Move to other class! What about errors?
-                .validate()
-                .responseDecodable(of: Pokemons.self){ (response) in
-                    guard let pokemonsWrapper = response.value else {return}
-                    print(pokemonsWrapper)
-                    seal.fulfill(pokemonsWrapper.pokemons)
+    func fetchAll(offset: Int, pageSize:Int) -> Promise<Array<Pokemon>> {
+        fetchAllResUrls(offset: offset, pageSize: pageSize)
+            .thenMap{ pokemonUrl in
+                self.fetchForUrl(url: pokemonUrl.url)
             }
+    }
+    
+    private func fetchAllResUrls(offset: Int, pageSize: Int) -> Promise<Array<PokemonUrl>>{
+        return Promise<Array<PokemonUrl>>{seal in
+            AF.request("\(AppUrl.baseUrl)pokemon/?limit=\(pageSize)&offset=\(offset)")
+                       .validate()
+                       .responseDecodable(of: Pokemons.self){ (response) in
+                           guard let pokemonsUrls = response.value else { return }
+                           seal.fulfill(pokemonsUrls.results)
+                   }
         }
         
+}
+    
+    private func fetchForUrl(url: String) -> Promise<Pokemon>{
+        return Promise<Pokemon>{ seal in
+                       print(url)
+                       AF.request(url)
+                           .validate()
+                           .responseDecodable(of: Pokemon.self){ (response) in
+                               guard let pokemon = response.value else { return }
+                               print(pokemon.name)
+                               seal.fulfill(pokemon)
+                           }
+                   }
     }
 }

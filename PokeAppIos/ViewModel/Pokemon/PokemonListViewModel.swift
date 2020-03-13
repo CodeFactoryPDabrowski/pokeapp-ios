@@ -10,13 +10,13 @@ import Foundation
 import PromiseKit
 
 class PokemonListViewModel {
-    let getAllPokemonsUseCase: GetAllPokemonsUseCase
+    private let getAllPokemonsUseCase: GetAllPokemonsUseCase
     
     init(getAllPokemonsUseCase: GetAllPokemonsUseCase){
         self.getAllPokemonsUseCase = getAllPokemonsUseCase
     }
     
     func loadPokemons()-> Promise<Array<Pokemon>> {
-        return getAllPokemonsUseCase.execute(param: GetAllPokemonsUseCase.Args(pageSize: 20))
+        return getAllPokemonsUseCase.execute(param: GetAllPokemonsUseCase.Args(offset: 0, pageSize: 20))
     }
 }

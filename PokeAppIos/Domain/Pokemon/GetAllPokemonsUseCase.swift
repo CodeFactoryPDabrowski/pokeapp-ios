@@ -22,12 +22,11 @@ struct GetAllPokemonsUseCase: UseCase {
     }
     
     func execute(param: GetAllPokemonsUseCase.Args) -> Promise<Array<Pokemon>> {
-        return firstly{
-            pokemonRepository.fetchAll()
-        }
+        return pokemonRepository.fetchPage(offset: param.offset, pageSize: param.pageSize)
     }
     
     struct Args {
+        let offset: Int
         let pageSize: Int
     }
 }

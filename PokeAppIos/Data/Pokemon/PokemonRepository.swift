@@ -10,13 +10,13 @@ import Foundation
 import PromiseKit
 
 struct PokemonRepository {
-    let networkSource: PokemonNetworkSource
+    private let networkSource: PokemonNetworkSource
     
     init(networkSource: PokemonNetworkSource) {
         self.networkSource = networkSource
     }
     
-    func fetchAll() -> Promise<Array<Pokemon>> {
-        return networkSource.fetchAll(pageSize: 25)
+    func fetchPage(offset: Int = 0, pageSize: Int = 20) -> Promise<Array<Pokemon>> {
+        return networkSource.fetchAll(offset: offset, pageSize: pageSize)
     }
 }

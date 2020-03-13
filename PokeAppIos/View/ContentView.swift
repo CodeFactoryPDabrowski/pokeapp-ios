@@ -9,10 +9,17 @@
 import SwiftUI
 
 struct ContentView: View {
-    let pokemonListViewModel: PokemonListViewModel
+    
+    private let pokemonListViewModel: PokemonListViewModel
     
     init(pokemonListViewModel: PokemonListViewModel) {
         self.pokemonListViewModel = pokemonListViewModel
+        pokemonListViewModel.loadPokemons()
+            .done{pokemons in
+                print(pokemons)
+        }.catch{error in
+                print(error)
+        }
     }
     
     var body: some View {
