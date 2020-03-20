@@ -16,7 +16,7 @@ class PokemonListViewModel {
         self.getAllPokemonsUseCase = getAllPokemonsUseCase
     }
     
-    func loadPokemons()-> Promise<Array<Pokemon>> {
+    func loadPokemons()-> Promise<Array<PokemonUi>> {
         return getAllPokemonsUseCase.execute(param: GetAllPokemonsUseCase.Args(offset: 0, pageSize: 20))
     }
 }

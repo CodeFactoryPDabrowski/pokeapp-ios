@@ -12,18 +12,30 @@ struct ContentView: View {
     
     private let pokemonListViewModel: PokemonListViewModel
     
+    @ObservedObject
+    private var pokemonListUi: PokemonListUi = PokemonListUi()
+    
     init(pokemonListViewModel: PokemonListViewModel) {
         self.pokemonListViewModel = pokemonListViewModel
-        pokemonListViewModel.loadPokemons()
-            .done{pokemons in
-                print(pokemons)
-        }.catch{error in
-                print(error)
-        }
     }
     
     var body: some View {
-        Text("Hello, World!")
+        NavigationView{
+            List{
+                ForEach(pokemonListUi.pokemons){ pokemon in
+                    Text("Pokemon: \(pokemon.name)")
+                }
+            }
+            .navigationBarTitle("Pokemons") //TODO: Move to resources?
+            .onAppear(){
+                self.pokemonListViewModel.loadPokemons()
+                    .done{pokemonsUi in
+                        self.pokemonListUi.pokemons = pokemonsUi
+                }.catch{error in
+                        print(error)
+                }
+            }
+        }
     }
 }
 

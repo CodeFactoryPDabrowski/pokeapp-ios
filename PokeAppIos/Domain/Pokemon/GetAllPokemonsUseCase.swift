@@ -13,7 +13,7 @@ struct GetAllPokemonsUseCase: UseCase {
     
     typealias Param = Args
     
-    typealias Result = Array<Pokemon>
+    typealias Result = Array<PokemonUi>
     
     private let pokemonRepository: PokemonRepository
     
@@ -21,8 +21,11 @@ struct GetAllPokemonsUseCase: UseCase {
         self.pokemonRepository = pokemonRepository
     }
     
-    func execute(param: GetAllPokemonsUseCase.Args) -> Promise<Array<Pokemon>> {
+    func execute(param: GetAllPokemonsUseCase.Args) -> Promise<Array<PokemonUi>> {
         return pokemonRepository.fetchPage(offset: param.offset, pageSize: param.pageSize)
+        .map{ pokemons in
+                return pokemons.map{pokemon in PokemonUi(id: pokemon.id, name: pokemon.name)}
+        }
     }
     
     struct Args {
