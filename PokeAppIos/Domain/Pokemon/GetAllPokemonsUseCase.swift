@@ -24,7 +24,9 @@ struct GetAllPokemonsUseCase: UseCase {
     func execute(param: GetAllPokemonsUseCase.Args) -> Promise<Array<PokemonUi>> {
         return pokemonRepository.fetchPage(offset: param.offset, pageSize: param.pageSize)
         .map{ pokemons in
-                return pokemons.map{pokemon in PokemonUi(id: pokemon.id, name: pokemon.name)}
+            return pokemons.map{pokemon in PokemonUi(id: pokemon.id,
+                                                     name: pokemon.name,
+                                                     avatar: pokemon.sprites.frontDefault!)} //TODO: Create mapper
         }
     }
     

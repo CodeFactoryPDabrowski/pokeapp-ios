@@ -15,8 +15,12 @@ class PokemonUi: ObservableObject, Identifiable {
     @Published
     var name: String
     
-    init(id: Int, name: String) {
+    @Published
+    var avatar: String
+    
+    init(id: Int, name: String, avatar: String) {
         self.id = id
         self.name = name
+        self.avatar = avatar
     }
 }

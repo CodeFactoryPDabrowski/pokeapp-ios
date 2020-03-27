@@ -23,7 +23,10 @@ struct ContentView: View {
         NavigationView{
             List{
                 ForEach(pokemonListUi.pokemons){ pokemon in
-                    Text("Pokemon: \(pokemon.name)")
+                    HStack{
+                        UrlImage(url: pokemon.avatar)
+                        Text("Pokemon: \(pokemon.name)")
+                    }
                 }
             }
             .navigationBarTitle("Pokemons") //TODO: Move to resources?
