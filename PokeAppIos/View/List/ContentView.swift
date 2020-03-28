@@ -22,13 +22,10 @@ struct ContentView: View {
     var body: some View {
         NavigationView{
             List{
-                ForEach(pokemonListUi.pokemons){ pokemon in
-                    HStack{
-                        UrlImage(url: pokemon.avatar)
-                        Text("Pokemon: \(pokemon.name)")
-                    }
+                ForEach(pokemonListUi.pokemons){ pokemonUi in
+                    PokemonItem(pokemon: pokemonUi)
                 }
-            }
+                }.listSeparatorStyleNone()
             .navigationBarTitle("Pokemons") //TODO: Move to resources?
             .onAppear(){
                 self.pokemonListViewModel.loadPokemons()
@@ -42,8 +39,18 @@ struct ContentView: View {
     }
 }
 
-//struct ContentView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ContentView()
-//    }
-//}
+public struct ListSeparatorStyleNoneModifier: ViewModifier {
+    public func body(content: Content) -> some View {
+        content.onAppear {
+            UITableView.appearance().separatorStyle = .none
+        }.onDisappear {
+            UITableView.appearance().separatorStyle = .singleLine
+        }
+    }
+}
+
+extension View {
+    public func listSeparatorStyleNone() -> some View {
+        modifier(ListSeparatorStyleNoneModifier())
+    }
+}
