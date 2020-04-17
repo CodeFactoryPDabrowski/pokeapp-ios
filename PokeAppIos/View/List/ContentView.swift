@@ -21,12 +21,10 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView{
-            List{
-                ForEach(pokemonListUi.pokemons){ pokemonUi in
-                    PokemonItem(pokemon: pokemonUi)
-                }
-                }.listSeparatorStyleNone()
-            .navigationBarTitle("Pokemons") //TODO: Move to resources?
+            GridView(pokemonListUi.pokemons, columns: 2){
+                PokemonItem(pokemon: $0)
+            }
+                .navigationBarTitle("Pokemons", displayMode: .inline) //TODO: Move to resources?
             .onAppear(){
                 self.pokemonListViewModel.loadPokemons()
                     .done{pokemonsUi in
@@ -36,21 +34,5 @@ struct ContentView: View {
                 }
             }
         }
-    }
-}
-
-public struct ListSeparatorStyleNoneModifier: ViewModifier {
-    public func body(content: Content) -> some View {
-        content.onAppear {
-            UITableView.appearance().separatorStyle = .none
-        }.onDisappear {
-            UITableView.appearance().separatorStyle = .singleLine
-        }
-    }
-}
-
-extension View {
-    public func listSeparatorStyleNone() -> some View {
-        modifier(ListSeparatorStyleNoneModifier())
     }
 }
