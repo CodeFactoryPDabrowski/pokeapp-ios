@@ -23,7 +23,7 @@ struct UrlImage: View {
        Image(uiImage: imageLoader.dataIsValid ? imageFromData(imageLoader.data!) : UIImage())
         .resizable()
         .aspectRatio(contentMode: .fit)
-        .frame(width:50, height:50)
+        .frame(width:72, height:72)
     }
     
     private func imageFromData(_ data:Data) -> UIImage {

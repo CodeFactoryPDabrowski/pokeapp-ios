@@ -220,17 +220,17 @@
 		DB485B7A23F5FF4500018723 /* PokeAppIos */ = {
 			isa = PBXGroup;
 			children = (
-				16C896B424095ADC00809647 /* ViewModel */,
-				DB485B7B23F5FF4500018723 /* AppDelegate.swift */,
 				16C896AE24094C5400809647 /* App */,
-				16C896A5240000D400809647 /* Domain */,
-				16C8968D23FEACD400809647 /* Data */,
-				16C8968C23FE9E7400809647 /* View */,
-				DB485B7D23F5FF4500018723 /* SceneDelegate.swift */,
+				DB485B7B23F5FF4500018723 /* AppDelegate.swift */,
 				DB485B8123F5FF4900018723 /* Assets.xcassets */,
-				DB485B8623F5FF4900018723 /* LaunchScreen.storyboard */,
+				16C8968D23FEACD400809647 /* Data */,
+				16C896A5240000D400809647 /* Domain */,
 				DB485B8923F5FF4900018723 /* Info.plist */,
+				DB485B8623F5FF4900018723 /* LaunchScreen.storyboard */,
 				DB485B8323F5FF4900018723 /* Preview Content */,
+				DB485B7D23F5FF4500018723 /* SceneDelegate.swift */,
+				16C8968C23FE9E7400809647 /* View */,
+				16C896B424095ADC00809647 /* ViewModel */,
 			);
 			path = PokeAppIos;
 			sourceTree = "<group>";
