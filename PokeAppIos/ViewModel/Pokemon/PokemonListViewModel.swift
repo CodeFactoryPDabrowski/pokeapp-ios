@@ -7,24 +7,29 @@
 //
 
 import Foundation
-import PromiseKit
+import Combine
+import Alamofire
 
 class PokemonListViewModel: ObservableObject {
     @Published
     var pokemons: [PokemonUi] = []
     
+    var cancellable: AnyCancellable? = nil
+    
     private let getAllPokemonsUseCase: GetAllPokemonsUseCase
     
     init(getAllPokemonsUseCase: GetAllPokemonsUseCase){
         self.getAllPokemonsUseCase = getAllPokemonsUseCase
-        loadPokemons().done{pokemonsUi in
-                self.pokemons = pokemonsUi
-        }.catch{error in
-                print(error)
-        }
+        cancellable = loadPokemons().sink (receiveCompletion: {error in print(error)},
+                             receiveValue: {pokemons in self.pokemons = pokemons})
     }
     
-    func loadPokemons()-> Promise<Array<PokemonUi>> {
+    deinit {
+        cancellable?.cancel()
+        cancellable = nil
+    }
+    
+    func loadPokemons()-> AnyPublisher<Array<PokemonUi>, AFError> {
         return getAllPokemonsUseCase.execute(param: GetAllPokemonsUseCase.Args(offset: 0, pageSize: 20))
     }
 }

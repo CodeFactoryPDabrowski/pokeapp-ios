@@ -7,13 +7,10 @@
 //
 
 import Foundation
-import PromiseKit
+import Combine
+import Alamofire
 
-struct GetAllPokemonsUseCase: UseCase {
-    
-    typealias Param = Args
-    
-    typealias Result = Array<PokemonUi>
+struct GetAllPokemonsUseCase {
     
     private let pokemonRepository: PokemonRepository
     
@@ -21,13 +18,13 @@ struct GetAllPokemonsUseCase: UseCase {
         self.pokemonRepository = pokemonRepository
     }
     
-    func execute(param: GetAllPokemonsUseCase.Args) -> Promise<Array<PokemonUi>> {
+    func execute(param: GetAllPokemonsUseCase.Args) -> AnyPublisher<Array<PokemonUi>, AFError> {
         return pokemonRepository.fetchPage(offset: param.offset, pageSize: param.pageSize)
         .map{ pokemons in
             return pokemons.map{pokemon in PokemonUi(id: pokemon.id,
                                                      name: pokemon.name,
                                                      avatar: pokemon.sprites.frontDefault!)} //TODO: Create mapper
-        }
+        }.eraseToAnyPublisher()
     }
     
     struct Args {

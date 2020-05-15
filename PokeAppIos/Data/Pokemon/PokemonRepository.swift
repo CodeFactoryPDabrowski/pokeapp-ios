@@ -7,7 +7,8 @@
 //
 
 import Foundation
-import PromiseKit
+import Combine
+import Alamofire
 
 struct PokemonRepository {
     private let networkSource: PokemonNetworkSource
@@ -16,7 +17,7 @@ struct PokemonRepository {
         self.networkSource = networkSource
     }
     
-    func fetchPage(offset: Int = 0, pageSize: Int = 20) -> Promise<Array<Pokemon>> {
+    func fetchPage(offset: Int = 0, pageSize: Int = 20) -> AnyPublisher<Array<Pokemon>, AFError> {
         return networkSource.fetchAll(offset: offset, pageSize: pageSize)
     }
 }

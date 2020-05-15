@@ -8,39 +8,45 @@
 
 import Foundation
 import Alamofire
-import PromiseKit
+import Combine
 
 struct PokemonNetworkSource {
     
-    func fetchAll(offset: Int, pageSize:Int) -> Promise<Array<Pokemon>> {
-        fetchAllResUrls(offset: offset, pageSize: pageSize)
-            .thenMap{ pokemonUrl in
-                self.fetchForUrl(url: pokemonUrl.url)
-            }
+    func fetchAll(offset: Int, pageSize:Int) -> AnyPublisher<Array<Pokemon>, AFError>{
+        return fetchAllResUrls(offset: offset, pageSize: pageSize)
+            .flatMap {pokemonUrls in self.fetchForUrlsAll(urls: pokemonUrls.map{$0.url})}
+            .eraseToAnyPublisher()
     }
     
-    private func fetchAllResUrls(offset: Int, pageSize: Int) -> Promise<Array<PokemonUrl>>{
-        return Promise<Array<PokemonUrl>>{seal in
-            AF.request("\(AppUrl.baseUrl)pokemon/?limit=\(pageSize)&offset=\(offset)")
-                       .validate()
-                       .responseDecodable(of: Pokemons.self){ (response) in
-                           guard let pokemonsUrls = response.value else { return }
-                           seal.fulfill(pokemonsUrls.results)
-                   }
-        }
-        
-}
-    
-    private func fetchForUrl(url: String) -> Promise<Pokemon>{
-        return Promise<Pokemon>{ seal in
-                       print(url)
-                       AF.request(url)
+     private func fetchAllResUrls(offset: Int, pageSize: Int) -> AnyPublisher<Array<PokemonUrl>, AFError>{
+            return Deferred{
+                       Future{promise in
+                           AF.request("\(AppUrl.baseUrl)pokemon/?limit=\(pageSize)&offset=\(offset)")
                            .validate()
-                           .responseDecodable(of: Pokemon.self){ (response) in
-                               guard let pokemon = response.value else { return }
-                               print(pokemon.name)
-                               seal.fulfill(pokemon)
-                           }
-                   }
+                           .responseDecodable(of: Pokemons.self){ (response) in
+                               guard let pokemonsUrls = response.value else { return }
+                            promise(.success(pokemonsUrls.results)) //TODO: Handling errors
+                       }}
+                       }.eraseToAnyPublisher()
+            
     }
+    private func fetchForUrlsAll(urls: Array<String>) -> AnyPublisher<Array<Pokemon>, AFError>{
+        return Publishers.Sequence(sequence: urls)
+            .flatMap {self.fetchForUrl(url: $0)}
+            .collect()
+            .eraseToAnyPublisher()
+    }
+    
+    private func fetchForUrl(url: String) -> AnyPublisher<Pokemon, AFError>{
+            return Deferred{ Future{promise in
+                           print(url)
+                           AF.request(url)
+                               .validate()
+                               .responseDecodable(of: Pokemon.self){ (response) in
+                                   guard let pokemon = response.value else { return }
+                                   print(pokemon.name)
+                                promise(.success(pokemon))
+                               }
+                }}.eraseToAnyPublisher()
+        }
 }
