@@ -17,7 +17,7 @@ struct PokemonItem: View {
     
     var body: some View {
         VStack(spacing: 0){
-                Text(pokemon.name).background(Color.red)
+                Text(pokemon.name)
                     .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topLeading)
                     .padding([.leading, .top, .trailing], 8)
             HStack{
@@ -25,10 +25,10 @@ struct PokemonItem: View {
                     Text("Grass")
                     Text("Fire")
                 }.padding([.bottom, .leading], 8)
-                UrlImage(url: pokemon.avatar).background(Color.yellow)
+                UrlImage(url: pokemon.avatar)
                 .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: 72, alignment: .bottomTrailing)
                 .padding([.bottom, .trailing], 8)
-            }.background(Color.green)
+            }
             }
              .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
              .background(Color.blue)// TODO: Color should be different

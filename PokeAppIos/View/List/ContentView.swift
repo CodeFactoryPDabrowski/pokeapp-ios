@@ -10,10 +10,9 @@ import SwiftUI
 
 struct ContentView: View {
     
-    private let pokemonListViewModel: PokemonListViewModel
-    
     @ObservedObject
-    private var pokemonListUi: PokemonListUi = PokemonListUi()
+    private var pokemonListViewModel: PokemonListViewModel
+
     
     init(pokemonListViewModel: PokemonListViewModel) {
         self.pokemonListViewModel = pokemonListViewModel
@@ -21,18 +20,10 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView{
-            GridView(pokemonListUi.pokemons, columns: 2){
+            GridView(pokemonListViewModel.pokemons, columns: 2){
                 PokemonItem(pokemon: $0)
             }
                 .navigationBarTitle("Pokemons", displayMode: .inline) //TODO: Move to resources?
-            .onAppear(){
-                self.pokemonListViewModel.loadPokemons()
-                    .done{pokemonsUi in
-                        self.pokemonListUi.pokemons = pokemonsUi
-                }.catch{error in
-                        print(error)
-                }
-            }
         }
     }
 }

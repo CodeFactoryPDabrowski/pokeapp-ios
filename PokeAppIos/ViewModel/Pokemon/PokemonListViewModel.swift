@@ -9,11 +9,19 @@
 import Foundation
 import PromiseKit
 
-class PokemonListViewModel {
+class PokemonListViewModel: ObservableObject {
+    @Published
+    var pokemons: [PokemonUi] = []
+    
     private let getAllPokemonsUseCase: GetAllPokemonsUseCase
     
     init(getAllPokemonsUseCase: GetAllPokemonsUseCase){
         self.getAllPokemonsUseCase = getAllPokemonsUseCase
+        loadPokemons().done{pokemonsUi in
+                self.pokemons = pokemonsUi
+        }.catch{error in
+                print(error)
+        }
     }
     
     func loadPokemons()-> Promise<Array<PokemonUi>> {
