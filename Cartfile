@@ -8,9 +8,6 @@
 
 # Architectural dependencies
 
-github "mxcl/PromiseKit" ~> 6.13.0
-github "PromiseKit/Foundation" ~> 3.3.4
-
 github "Swinject/Swinject"
 
 #Networking
