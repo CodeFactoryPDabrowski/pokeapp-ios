@@ -20,8 +20,10 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView{
-            GridView(pokemonListViewModel.pokemons, columns: 2){
-                PokemonItem(pokemon: $0)
+            GridView(pokemonListViewModel.pokemons, columns: 2){ poke in
+                NavigationLink(destination: PokemonDetails()) {
+                    PokemonItem(pokemon: poke)
+                }.buttonStyle(PlainButtonStyle())
             }
                 .navigationBarTitle("Pokemons", displayMode: .inline) //TODO: Move to resources?
         }
